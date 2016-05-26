@@ -1,3 +1,3 @@
-exports.Credentials = require('./creds');
-exports.Restlet = require('./restlet');
-exports.SuiteTalk = require('./suitetalk');
+exports.Credentials = require('./lib/creds');
+exports.Restlet = require('./lib/restlet');
+exports.SuiteTalk = require('./lib/suitetalk');

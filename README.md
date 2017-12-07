@@ -1,3 +1,5 @@
+[![devDependencies Status](https://david-dm.org/cancerberosgx/netsuite-uploader-util/status.svg)](https://david-dm.org/cancerberosgx/netsuite-uploader-util)
+
 # netsuite-uploader-util
 
 Helper library for uploading files from your local computer into the NetSuite File Cabinet from nodejs.

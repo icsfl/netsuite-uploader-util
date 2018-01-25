@@ -16,15 +16,15 @@ Simple using SuiteTalk 2015_1 so you dont need application ID:
 
 ```javascript
 // Constants: - change according to your needs
-var account = 'TSTDRV1234567';
-var role = 3;
-var localfile = '/home/me/script1.js' // the local file to upload
-var remoteFile = 'SuiteScripts/script1.js' // the path to file cabinet path to update or create. You can pass non-existing folders - in that case they will be created recursively, like mkdir -p
+const account = 'TSTDRV1234567';
+const role = 3;
+const localfile = '/home/me/script1.js' // the local file to upload
+const remoteFile = 'SuiteScripts/script1.js' // the path to file cabinet path to update or create. You can pass non-existing folders - in that case they will be created recursively, like mkdir -p
 
-var nsutil = require('netsuite-uploader-util');
+const nsutil = require('netsuite-uploader-util');
 
-var client = new nsutil.SuiteTalk();
-var creds = nsutil.Credentials(); // ask for credentials if neccesary
+const client = new nsutil.SuiteTalk();
+const creds = nsutil.Credentials(); // ask for credentials - don't use it if you are getting the credentials differently. 
 client.init(creds.email, creds.password, account, role).then(() => {
     client.upload(file.path, suiteScriptPath).then(r=>{
         console.log('  Uploaded File: ' + suiteScriptPath);
@@ -39,22 +39,22 @@ client.init(creds.email, creds.password, account, role).then(() => {
 Or you can use latest SuiteTalk versions, currently 2017_2. For this you need an application ID which you can create in Setup->Integration->Manage Integrations menu. Is the same as before but we pass extra two parameters to client.init(). `nsVersion` parameter is optional. Example: 
 
 ```javascript
-var applicationId = 'E296719E-C000-4719-B60A-89B72FB65E88';
-var nsVersion = '2017_2';
+const applicationId = 'E296719E-C000-4719-B60A-89B72FB65E88';
+const nsVersion = '2017_2';
 client.init(creds.email, creds.password, account, role, applicationId, nsVersion)....
 ```
 
 # Sample gulpfile.js task that leverages this utility:
 
 ```javascript
-var gulp = require('gulp'),
+const gulp = require('gulp'),
     watch = require('gulp-watch'),
     nsutil = require('netsuite-uploader-util');
 
 // "Constants"
-var watchFilter = 'netsuite_code/**/*.js';
-var account = 'TSTDRV1234567';
-var role = 3;
+const watchFilter = 'netsuite_code/**/*.js';
+const account = 'TSTDRV1234567';
+const role = 3;
 
 gulp.task('default', () => {
     var client = new nsutil.SuiteTalk();

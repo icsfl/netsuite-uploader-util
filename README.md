@@ -24,16 +24,16 @@ var remoteFile = 'SuiteScripts/script1.js' // the path to file cabinet path to u
 var nsutil = require('netsuite-uploader-util');
 
 var client = new nsutil.SuiteTalk();
-var creds = nsutil.Credentials;
+var creds = nsutil.Credentials(); // ask for credentials if neccesary
 client.init(creds.email, creds.password, account, role).then(() => {
     client.upload(file.path, suiteScriptPath).then(r=>{
-            console.log('  Uploaded File: ' + suiteScriptPath);
-        }, err => {
-            console.log('  Failed to Upload File: ' + err);
-        });
+        console.log('  Uploaded File: ' + suiteScriptPath);
+    }).catch(err => {
+        console.log('  Failed to Upload File: ' + err);
     });
+}).catch(err => {
+    console.log('  Failed to authenticate: ' + err);
 });
-
 ```
 
 Or you can use latest SuiteTalk versions, currently 2017_2. For this you need an application ID which you can create in Setup->Integration->Manage Integrations menu. Is the same as before but we pass extra two parameters to client.init(). `nsVersion` parameter is optional. Example: 

@@ -1,3 +1,5 @@
-exports.Credentials = require('./lib/creds');
-exports.Restlet = require('./lib/restlet');
-exports.SuiteTalk = require('./lib/suitetalk');
+module.exports = {
+    Credentials: require('./lib/creds').Credentials, 
+    Restlet: require('./lib/restlet'),
+    SuiteTalk: require('./lib/suitetalk')
+};

@@ -22,8 +22,10 @@
   },
   "homepage": "https://github.com/icsfl/netsuite-uploader-util#readme",
   "dependencies": {
+    "oauth": "^0.9.15",
     "q": "^1.4.1",
     "readline-sync": "^1.4.2",
+    "request": "^2.83.0",
     "string-template": "^1.0.0",
     "upath": "^1.0.2"
   }
